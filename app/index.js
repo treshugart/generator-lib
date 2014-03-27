@@ -88,7 +88,7 @@ module.exports = yeoman.generators.Base.extend({
       var done = this.async();
 
       this.spawnCommand('git', ['init']).on('exit', function() {
-        that.spawnCommand('git', ['remote', 'add', 'origin', this.gitRemote + ':' + this.gitUsername + '/' + this.libraryName]).on('exit', done);
+        that.spawnCommand('git', ['remote', 'add', 'origin', that.gitRemote + ':' + that.gitUsername + '/' + that.libraryName]).on('exit', done);
       });
     }
   },

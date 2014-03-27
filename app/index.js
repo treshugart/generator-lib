@@ -32,17 +32,6 @@ var prompts = [{
 
 
 module.exports = yeoman.generators.Base.extend({
-  init: function () {
-    this.on('end', function () {
-      this.npmInstall();
-
-      if (this.gitUsername) {
-        this.spawnCommand('git' ['init']);
-        this.spawnCommand('git' ['remote', 'add', 'origin', this.gitRemote + ':' + this.gitUsername + '/' + this.libraryName]);
-      }
-    });
-  },
-
   askFor: function () {
     var done = this.async();
 
@@ -51,6 +40,8 @@ module.exports = yeoman.generators.Base.extend({
       this.libraryDescription = props.libraryDescription;
       this.useBower = props.useBower;
       this.userName = props.userName;
+      this.gitUsername = props.gitUsername;
+      this.gitRemote = props.gitRemote;
       done();
     }.bind(this));
   },
@@ -90,7 +81,20 @@ module.exports = yeoman.generators.Base.extend({
     this.write('test/' + this.libraryName + '.js', '');
   },
 
+  gitInit: function () {
+    var that = this;
+
+    if (this.gitUsername) {
+      var done = this.async();
+
+      this.spawnCommand('git', ['init']).on('exit', function() {
+        that.spawnCommand('git', ['remote', 'add', 'origin', this.gitRemote + ':' + this.gitUsername + '/' + this.libraryName]).on('exit', done);
+      });
+    }
+  },
+
   finalise: function () {
+    this.npmInstall();
     fs.chmodSync('build/bin/npm-postinstall.sh', '0777');
-  }
+  },
 });

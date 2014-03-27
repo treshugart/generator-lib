@@ -54,7 +54,7 @@ module.exports = yeoman.generators.Base.extend({
     this.copy('.editorconfig', '.editorconfig');
     this.copy('.jscsrc', '.jscsrc');
     this.copy('.jshintrc', '.jshintrc');
-    this.copy('build-config-index.js', 'build/configs/index.js');
+    this.copy('build-configs-index.js', 'build/configs/index.js');
     this.copy('Gruntfile.js', 'Gruntfile.js');
   },
 

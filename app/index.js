@@ -12,7 +12,7 @@ var prompts = [{
     message: 'What is your name?'
   }, {
     name: 'libraryName',
-    message: 'What is the library\s name?'
+    message: 'What is the library\'s name?'
   }, {
     name: 'libraryDescription',
     message: 'What does this library do?'
@@ -21,6 +21,13 @@ var prompts = [{
     name: 'useBower',
     message: 'Do you want to use Bower?',
     default: true
+  }, {
+    name: 'gitUsername',
+    message: 'What is your git username? Leave blank to not initialise as a git repository.'
+  }, {
+    name: 'gitRemote',
+    message: 'Which git remote do you want to use?',
+    default: 'git@github.com'
   }];
 
 
@@ -28,6 +35,11 @@ module.exports = yeoman.generators.Base.extend({
   init: function () {
     this.on('end', function () {
       this.npmInstall();
+
+      if (this.gitUsername) {
+        this.spawnCommand('git' ['init']);
+        this.spawnCommand('git' ['remote', 'add', 'origin', this.gitRemote + ':' + this.gitUsername + '/' + this.libraryName]);
+      }
     });
   },
 

@@ -1,0 +1,18 @@
+{
+  "name": "<%= libraryName %>",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-available-tasks": "latest",
+    "grunt-contrib": "latest",
+    "grunt-jscs-checker": "latest",
+    "grunt-karma": "latest",
+    "karma-chai": "latest",
+    "karma-mocha": "latest"
+  },
+  "scripts": {
+    "postinstall": "./bin/npm-postinstall",
+    "test": "grunt test"
+  }
+}

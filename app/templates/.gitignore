@@ -1,0 +1,3 @@
+.DS_Store
+<% if (useBower) { %>bower_components<% } %>
+node_modules

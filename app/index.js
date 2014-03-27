@@ -65,7 +65,7 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('bower.json', 'bower.json');
     }
 
-    this.template('build-bin-npm-postinstall.sh', 'build/bin/npm-postinstall.js');
+    this.template('build-bin-npm-postinstall.sh', 'build/bin/npm-postinstall.sh');
     this.template('build-configs-karma.js', 'build/configs/karma.js');
     this.template('package.json', 'package.json');
     this.template('readme.md', 'readme.md');

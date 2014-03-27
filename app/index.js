@@ -1,8 +1,10 @@
 'use strict';
-var util = require('util');
-var path = require('path');
-var yeoman = require('yeoman-generator');
+
 var chalk = require('chalk');
+var fs = require('fs');
+var path = require('path');
+var util = require('util');
+var yeoman = require('yeoman-generator');
 
 
 var prompts = [{
@@ -72,7 +74,11 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writes: function () {
-    //this.write('src/' + this.libraryName + '.js');
-    //this.write('test/' + this.libraryName + '.js');
+    this.write('src/' + this.libraryName + '.js', '');
+    this.write('test/' + this.libraryName + '.js', '');
+  },
+
+  finalise: function () {
+    fs.chmodSync('build/bin/npm-postinstall.sh', '0777');
   }
 });

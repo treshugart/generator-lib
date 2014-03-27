@@ -12,7 +12,7 @@
     "karma-mocha": "latest"
   },
   "scripts": {
-    "postinstall": "./bin/npm-postinstall",
+    "postinstall": "./build/bin/npm-postinstall",
     "test": "grunt test"
   }
 }

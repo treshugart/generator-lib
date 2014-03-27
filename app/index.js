@@ -25,7 +25,7 @@ var prompts = [{
 module.exports = yeoman.generators.Base.extend({
   init: function () {
     this.on('end', function () {
-      //this.spawnCommand('npm' ['install']);
+      this.npmInstall();
     });
   },
 
@@ -54,7 +54,7 @@ module.exports = yeoman.generators.Base.extend({
     this.copy('.editorconfig', '.editorconfig');
     this.copy('.jscsrc', '.jscsrc');
     this.copy('.jshintrc', '.jshintrc');
-    this.copy('build-config-index.js', 'build/config/index.js');
+    this.copy('build-config-index.js', 'build/configs/index.js');
     this.copy('Gruntfile.js', 'Gruntfile.js');
   },
 
@@ -66,12 +66,13 @@ module.exports = yeoman.generators.Base.extend({
     }
 
     this.template('build-bin-npm-postinstall.sh', 'build/bin/npm-postinstall.js');
+    this.template('build-configs-karma.js', 'build/configs/karma.js');
     this.template('package.json', 'package.json');
     this.template('readme.md', 'readme.md');
   },
 
   writes: function () {
-    this.write('src/' + this.libraryName + '.js');
-    this.write('test/' + this.libraryName + '.js');
+    //this.write('src/' + this.libraryName + '.js');
+    //this.write('test/' + this.libraryName + '.js');
   }
 });

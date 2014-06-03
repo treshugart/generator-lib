@@ -10,10 +10,11 @@
     "grunt-jscs-checker": "latest",
     "grunt-karma": "latest",
     "karma-chai": "latest",
-    "karma-mocha": "latest"
+    "karma-mocha": "latest",
+    "karma-phantomjs-launcher": "latest"
   },
   "scripts": {
     "postinstall": "./build/bin/npm-postinstall.sh",
-    "test": "grunt test"
+    "test": "grunt karma:cli"
   }
 }

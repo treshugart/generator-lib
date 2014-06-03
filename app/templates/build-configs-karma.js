@@ -1,13 +1,23 @@
 module.exports = {
-  all: {
-    options: {
-      browsers: ['PhantomJS'],
-      files: [
-        'src/<%= libraryName %>.js',
-        'test/<%= libraryName %>.js'
-      ],
-      frameworks: ['mocha', 'chai'],
-      singleRun: true
-    }
+  options: {
+    browsers: ['PhantomJS'],
+    files: [
+      'src/<%= libraryName %>.js',
+      'test/<%= libraryName %>.js'
+    ],
+    frameworks: [
+      'chai',
+      'mocha'
+    ],
+    plugins: [
+      'karma-chai',
+      'karma-mocha',
+      'karma-phantomjs-launcher'
+    ],
+    singleRun: true
+  },
+  cli: {},
+  http: {
+    singleRun: false
   }
 };

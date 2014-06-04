@@ -10,14 +10,12 @@ module.exports = function (grunt) {
       ],
       frameworks: [
         'chai',
-        'mocha',
-        'sinon'
+        'mocha'
       ],
       plugins: [
         'karma-chai',
         'karma-mocha',
-        'karma-phantomjs-launcher',
-        'karma-sinon'
+        'karma-phantomjs-launcher'
       ],
       singleRun: true
     },

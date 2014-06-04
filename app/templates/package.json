@@ -1,6 +1,7 @@
 {
   "name": "<%= libraryName %>",
   "version": "0.0.0",
+  "repository": "<%= gitRemote %>:<%= gitUsername %>/<%= libraryName %>",
   "dependencies": {},
   "devDependencies": {
     <% if (useBower) { %>"bower": "latest",<% } %>

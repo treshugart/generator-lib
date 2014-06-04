@@ -77,8 +77,8 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writes: function () {
-    this.write('src/' + this.libraryName + '.js', '');
-    this.write('test/' + this.libraryName + '.js', '');
+    this.template('src-libmain.js', 'src/' + this.libraryName + '.js');
+    this.template('src-libtest.js', 'test/' + this.libraryName + '.js');
   },
 
   gitInit: function () {

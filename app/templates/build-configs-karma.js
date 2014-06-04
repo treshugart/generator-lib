@@ -17,7 +17,7 @@ module.exports = function (grunt) {
         'karma-mocha',
         'karma-phantomjs-launcher'
       ],
-      singleRun: true
+      singleRun: !grunt.option('watch')
     },
     cli: {},
     http: {

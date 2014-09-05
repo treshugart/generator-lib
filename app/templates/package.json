@@ -5,6 +5,7 @@
   "dependencies": {},
   "devDependencies": {
     "bower": "latest",
+    "glob": "latest",
     "grunt": "latest",
     "grunt-available-tasks": "latest",
     "grunt-contrib-requirejs": "latest",

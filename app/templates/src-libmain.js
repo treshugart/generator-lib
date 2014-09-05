@@ -4,8 +4,10 @@
   // Public API.
   var exports = {};
 
-  // Alays export global.
-  window.globalName = exports;
+  // Always export global.
+  window.<%= return cwd.toLowerCase().replace(/-(.)/g, function(match, dir) {
+        return dir.toUpperCase();
+    }); %> = exports;
 
   // AMD.
   if (typeof define === 'function' && define.amd) {

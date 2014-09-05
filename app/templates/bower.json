@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "<%= cwd %>",
   "version": "0.0.0",
   "devDependencies": {
     "require-cs": "latest",

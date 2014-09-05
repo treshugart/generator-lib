@@ -1,3 +1,6 @@
+<%= cwd %>
+<%= new Array(cwd.length).join('='); %>
+
 License
 -------
 

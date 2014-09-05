@@ -1,13 +1,14 @@
 'use strict';
 
-var chalk = require('chalk');
 var fs = require('fs');
-var path = require('path');
-var util = require('util');
+var process = require('process');
 var yeoman = require('yeoman-generator');
 
-
 module.exports = yeoman.generators.Base.extend({
+  vars: function () {
+    this.cwd = process.cwd();
+  },
+
   dirs: function () {
     this.mkdir('build');
     this.mkdir('build/bin');
@@ -18,17 +19,17 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   copies: function () {
-    this.copy('.editorconfig', '.editorconfig');
-    this.copy('.jscsrc', '.jscsrc');
-    this.copy('.jshintrc', '.jshintrc');
-    this.copy('build-configs-index.js', 'build/configs/index.js');
-    this.copy('build-configs-requirejs.js', 'build/configs/requirejs.js');
-    this.copy('Gruntfile.js', 'Gruntfile.js');
+    this.template('.editorconfig', '.editorconfig');
+    this.template('.jscsrc', '.jscsrc');
+    this.template('.jshintrc', '.jshintrc');
+    this.template('build-configs-index.js', 'build/configs/index.js');
+    this.template('build-configs-requirejs.js', 'build/configs/requirejs.js');
+    this.template('Gruntfile.js', 'Gruntfile.js');
   },
 
   templates: function () {
     this.template('.gitignore', '.gitignore');
-    this.copy('bower.json', 'bower.json');
+    this.template('bower.json', 'bower.json');
     this.template('build-bin-npm-postinstall.sh', 'build/bin/npm-postinstall.sh');
     this.template('build-configs-karma.js', 'build/configs/karma.js');
     this.template('package.json', 'package.json');

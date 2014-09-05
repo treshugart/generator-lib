@@ -1,13 +1,21 @@
-var tests = [];
+(function () {
+  'use strict';
 
-for (var file in window.__karma__.files) {
-  if (window.__karma__.files.hasOwnProperty(file)) {
-    tests.push(file);
-  }
-}
+  var files = window.__karma__.files;
+  var start = window.__karma__.start;
+  var tests = [];
 
-requirejs.config({
-  baseUrl: '/base/src',
-  deps: tests,
-  callback: window.__karma__.start
-});
+  Object.keys(files).forEach(function (file) {
+    if (file.indexOf('/unit/') > -1) {
+      tests.push(file);
+    }
+  });
+
+  require([
+    '/base/src/<%= libraryName %>.js',
+  ], function (
+    lib
+  ) {
+    require(tests, start);
+  });
+}());

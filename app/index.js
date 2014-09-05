@@ -44,7 +44,7 @@ module.exports = yeoman.generators.Base.extend({
     this.mkdir('build/configs');
     this.mkdir('build/tasks');
     this.mkdir('src');
-    this.mkdir('test');
+    this.mkdir('test/unit');
   },
 
   copies: function () {
@@ -67,7 +67,7 @@ module.exports = yeoman.generators.Base.extend({
 
   writes: function () {
     this.template('src-libmain.js', 'src/' + this.libraryName + '.js');
-    this.template('src-libtest.js', 'test/' + this.libraryName + '.js');
+    this.template('src-libtest.js', 'test/unit/' + this.libraryName + '.js');
   },
 
   gitInit: function () {

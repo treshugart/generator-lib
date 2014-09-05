@@ -5,9 +5,9 @@
   var exports = {};
 
   // Always export global.
-  window.<%= return cwd.toLowerCase().replace(/-(.)/g, function(match, dir) {
+  window.<%= cwd.toLowerCase().replace(/-(.)/g, function(match, dir) {
         return dir.toUpperCase();
-    }); %> = exports;
+    }) %> = exports;
 
   // AMD.
   if (typeof define === 'function' && define.amd) {

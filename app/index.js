@@ -1,11 +1,12 @@
 'use strict';
 
 var fs = require('fs');
+var path = require('path');
 var yeoman = require('yeoman-generator');
 
 module.exports = yeoman.generators.Base.extend({
   vars: function () {
-    this.cwd = process.cwd();
+    this.cwd = path.basename(process.cwd());
   },
 
   dirs: function () {

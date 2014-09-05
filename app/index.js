@@ -1,7 +1,6 @@
 'use strict';
 
 var fs = require('fs');
-var process = require('process');
 var yeoman = require('yeoman-generator');
 
 module.exports = yeoman.generators.Base.extend({

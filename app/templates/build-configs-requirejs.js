@@ -2,7 +2,7 @@ module.exports = function () {
   'use strict';
 
   var glob = require('glob');
-  var srcFiles = glob.sync('src/*/main.js');
+  var srcFiles = glob.sync('src/*.js');
   var allFiles = srcFiles.map(function (item) {
       return '../' + item;
     });

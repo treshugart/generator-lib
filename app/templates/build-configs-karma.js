@@ -5,8 +5,8 @@ module.exports = function (grunt) {
       port: grunt.option('port') || '9876',
       browsers: ['PhantomJS'],
       files: [
-        'src/<%= libraryName %>.js',
-        'test/<%= libraryName %>.js'
+        'src/main.js',
+        'test/unit/main.js'
       ],
       frameworks: [
         'chai',

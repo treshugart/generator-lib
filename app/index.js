@@ -5,39 +5,9 @@ var fs = require('fs');
 var path = require('path');
 var util = require('util');
 var yeoman = require('yeoman-generator');
-var prompts = [{
-    name: 'userName',
-    message: 'What is your name?'
-  }, {
-    name: 'libraryName',
-    message: 'What is the library\'s name?'
-  }, {
-    name: 'libraryDescription',
-    message: 'What does this library do?'
-  }, {
-    name: 'gitUsername',
-    message: 'What is your git username? Leave blank to not initialise as a git repository.'
-  }, {
-    name: 'gitRemote',
-    message: 'Which git remote do you want to use?',
-    default: 'git@github.com'
-  }];
 
 
 module.exports = yeoman.generators.Base.extend({
-  askFor: function () {
-    var done = this.async();
-
-    this.prompt(prompts, function (props) {
-      this.libraryName = props.libraryName;
-      this.libraryDescription = props.libraryDescription;
-      this.userName = props.userName;
-      this.gitUsername = props.gitUsername;
-      this.gitRemote = props.gitRemote;
-      done();
-    }.bind(this));
-  },
-
   dirs: function () {
     this.mkdir('build');
     this.mkdir('build/bin');
@@ -66,20 +36,8 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writes: function () {
-    this.template('src-libmain.js', 'src/' + this.libraryName + '.js');
-    this.template('src-libtest.js', 'test/unit/' + this.libraryName + '.js');
-  },
-
-  gitInit: function () {
-    var that = this;
-
-    if (this.gitUsername) {
-      var done = this.async();
-
-      this.spawnCommand('git', ['init']).on('exit', function() {
-        that.spawnCommand('git', ['remote', 'add', 'origin', that.gitRemote + ':' + that.gitUsername + '/' + that.libraryName]).on('exit', done);
-      });
-    }
+    this.template('src-libmain.js', 'src/main.js');
+    this.template('src-libtest.js', 'test/unit/main.js');
   },
 
   finalise: function () {

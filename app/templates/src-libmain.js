@@ -1,15 +1,21 @@
 (function () {
   'use strict';
 
+  // Public API.
   var exports = {};
 
-  window.<%= libraryName %> = exports;
+  // Alays export global.
+  window.globalName = exports;
 
+  // AMD.
   if (typeof define === 'function' && define.amd) {
     define(function () {
       return exports;
     });
-  } else if (typeof module === 'object') {
+  }
+
+  // CommonJS.
+  else if (typeof module === 'object') {
     module.exports = exports;
   }
 }());

@@ -1,5 +1,5 @@
 {
-  "name": "<%= libraryName %>",
+  "name": "",
   "version": "0.0.0",
   "devDependencies": {
     "require-cs": "latest",

@@ -12,7 +12,7 @@
   });
 
   require([
-    '/base/src/<%= libraryName %>.js',
+    '/base/src/main.js',
   ], function (
     lib
   ) {

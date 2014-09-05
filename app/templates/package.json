@@ -1,7 +1,7 @@
 {
-  "name": "<%= libraryName %>",
+  "name": "",
   "version": "0.0.0",
-  "repository": "<%= gitRemote %>:<%= gitUsername %>/<%= libraryName %>",
+  "repository": "",
   "dependencies": {},
   "devDependencies": {
     "bower": "latest",

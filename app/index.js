@@ -5,8 +5,6 @@ var fs = require('fs');
 var path = require('path');
 var util = require('util');
 var yeoman = require('yeoman-generator');
-
-
 var prompts = [{
     name: 'userName',
     message: 'What is your name?'
@@ -16,11 +14,6 @@ var prompts = [{
   }, {
     name: 'libraryDescription',
     message: 'What does this library do?'
-  }, {
-    type: 'confirm',
-    name: 'useBower',
-    message: 'Do you want to use Bower?',
-    default: true
   }, {
     name: 'gitUsername',
     message: 'What is your git username? Leave blank to not initialise as a git repository.'
@@ -38,7 +31,6 @@ module.exports = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.libraryName = props.libraryName;
       this.libraryDescription = props.libraryDescription;
-      this.useBower = props.useBower;
       this.userName = props.userName;
       this.gitUsername = props.gitUsername;
       this.gitRemote = props.gitRemote;
@@ -60,16 +52,13 @@ module.exports = yeoman.generators.Base.extend({
     this.copy('.jscsrc', '.jscsrc');
     this.copy('.jshintrc', '.jshintrc');
     this.copy('build-configs-index.js', 'build/configs/index.js');
+    this.copy('build-configs-requirejs.js', 'build/configs/requirejs.js');
     this.copy('Gruntfile.js', 'Gruntfile.js');
   },
 
   templates: function () {
     this.template('.gitignore', '.gitignore');
-
-    if (this.useBower) {
-      this.copy('bower.json', 'bower.json');
-    }
-
+    this.copy('bower.json', 'bower.json');
     this.template('build-bin-npm-postinstall.sh', 'build/bin/npm-postinstall.sh');
     this.template('build-configs-karma.js', 'build/configs/karma.js');
     this.template('package.json', 'package.json');

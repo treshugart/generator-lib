@@ -1,5 +1,9 @@
 {
   "name": "<%= libraryName %>",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "devDependencies": {
+    "require-cs": "latest",
+    "require-less": "latest",
+    "requirejs-text": "latest"
+  }
 }
-

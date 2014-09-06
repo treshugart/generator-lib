@@ -13,11 +13,15 @@ module.exports = function (grunt) {
       port: grunt.option('port') || '9876',
       browsers: browsers,
       files: [
+        // Load in script tags.
         { pattern: 'test/lib/polyfills.js', included: true },
         { pattern: 'test/*.js', included: true },
+
+        // Register for AMD loader.
         { pattern: 'bower_components/**/*.js', included: false },
         { pattern: 'src/*.js', included: false },
-        { pattern: 'test/**/*.js', included: false }
+        { pattern: 'test/**/*.js', included: false },
+        { pattern: 'test/lib/helpers.js', included: false }
       ],
       frameworks: [
         'requirejs',

@@ -5,6 +5,19 @@
   "camelcase": true,
   "curly": true,
   "eqeqeq": true,
+  "globals": {
+      "afterEach": false,
+      "assert": false,
+      "beforeEach": false,
+      "define": false,
+      "describe": false,
+      "document": false,
+      "expect": false,
+      "it": false,
+      "NodeFilter": false,
+      "skate": false,
+      "window": false
+    },
   "immed": true,
   "indent": 2,
   "latedef": true,
@@ -16,6 +29,5 @@
   "unused": true,
   "strict": true,
   "trailing": true,
-  "smarttabs": true,
-  "white": true
+  "smarttabs": true
 }

@@ -1,13 +1,23 @@
 module.exports = function (grunt) {
+  var browsers = grunt.option('browsers');
+
+  if (browsers) {
+    browsers = browsers.split(',');
+  } else {
+    browsers = ['PhantomJS'];
+  }
+
   return {
     options: {
       hostname: grunt.option('host') || 'localhost',
       port: grunt.option('port') || '9876',
-      browsers: ['PhantomJS'],
+      browsers: browsers,
       files: [
+        { pattern: 'test/lib/polyfills.js', included: true },
+        { pattern: 'test/*.js', included: true },
+        { pattern: 'bower_components/**/*.js', included: false },
         { pattern: 'src/*.js', included: false },
-        { pattern: 'test/**/*.js', included: false },
-        { pattern: 'test/*.js', included: true }
+        { pattern: 'test/**/*.js', included: false }
       ],
       frameworks: [
         'requirejs',
@@ -15,10 +25,12 @@ module.exports = function (grunt) {
         'chai'
       ],
       plugins: [
-        'karma-phantomjs-launcher',
-        'karma-requirejs',
+        'karma-chai',
+        'karma-chrome-launcher',
+        'karma-firefox-launcher',
         'karma-mocha',
-        'karma-chai'
+        'karma-phantomjs-launcher',
+        'karma-requirejs'
       ],
       singleRun: !grunt.option('watch')
     },

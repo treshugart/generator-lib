@@ -35,6 +35,7 @@ module.exports = yeoman.generators.Base.extend({
     this.template('package.json', 'package.json');
     this.template('readme.md', 'readme.md');
     this.template('src-main.js', 'src/main.js');
+    this.template('test-lib-polyfills.js', 'test/lib/polyfills.js');
     this.template('test-unit-main.js', 'test/unit/main.js');
     this.template('test-unit.js', 'test/unit.js');
   },

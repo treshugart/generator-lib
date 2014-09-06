@@ -1,21 +1,20 @@
-(function () {
+(function (factory) {
   'use strict';
 
-  // Public API.
-  var exports = {};
-
-  // Always export global.
-  window.<%= cwdCamelCased %> = exports;
+  // Global.
+  window.templateReact = factory();
 
   // AMD.
   if (typeof define === 'function') {
     define(function () {
-      return exports;
+      return factory();
     });
   }
 
   // CommonJS.
   if (typeof module === 'object') {
-    module.exports = exports;
+    module.exports = factory();
   }
-}());
+}(function () {
+  return {};
+}));

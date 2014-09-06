@@ -16,5 +16,7 @@
     module.exports = factory();
   }
 }(function () {
+  'use strict';
+
   return {};
 }));

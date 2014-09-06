@@ -1,7 +1,9 @@
 {
   "name": "<%= cwd %>",
-  "description": "",
+  "description": "<%= cwd %>",
   "version": "0.0.0",
+  "repository": "https://github.com/yourname/<%= cwd %>",
+  "dependencies": {},
   "devDependencies": {
     "require-cs": "latest",
     "require-less": "latest",

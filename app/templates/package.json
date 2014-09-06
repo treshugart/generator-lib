@@ -1,8 +1,8 @@
 {
   "name": "<%= cwd %>",
-  "description": "",
+  "description": "<%= cwd %>",
   "version": "0.0.0",
-  "repository": "",
+  "repository": "https://github.com/yourname/<%= cwd %>",
   "dependencies": {},
   "devDependencies": {
     "bower": "latest",
@@ -14,7 +14,8 @@
     "grunt-karma": "latest",
     "karma-chai": "latest",
     "karma-mocha": "latest",
-    "karma-phantomjs-launcher": "latest"
+    "karma-phantomjs-launcher": "latest",
+    "karma-requirejs": "latest"
   },
   "scripts": {
     "postinstall": "./build/bin/npm-postinstall.sh",

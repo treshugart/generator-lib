@@ -11,11 +11,5 @@
     }
   });
 
-  require([
-    '/base/src/main.js',
-  ], function (
-    lib
-  ) {
-    require(tests, start);
-  });
+  require(tests, start);
 }());

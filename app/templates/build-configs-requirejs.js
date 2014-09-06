@@ -13,7 +13,7 @@ module.exports = function () {
         baseUrl: 'src',
         dir: 'dist',
         modules: [{
-          name: 'aui',
+          name: '<%= cwd %>',
           create: true,
           include: allFiles,
           exclude: [

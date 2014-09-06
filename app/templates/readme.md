@@ -1,6 +1,8 @@
 <%= cwd %>
 <%= new Array(cwd.length).join('=') %>
 
+<%= cwd %>
+
 License
 -------
 

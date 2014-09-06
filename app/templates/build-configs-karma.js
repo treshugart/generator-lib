@@ -5,17 +5,19 @@ module.exports = function (grunt) {
       port: grunt.option('port') || '9876',
       browsers: ['PhantomJS'],
       files: [
-        'src/main.js',
-        'test/unit/main.js'
+        { pattern: 'src/main.js', included: false },
+        { pattern: 'test/unit.js', included: true },
       ],
       frameworks: [
-        'chai',
-        'mocha'
+        'requirejs',
+        'mocha',
+        'chai'
       ],
       plugins: [
-        'karma-chai',
+        'karma-phantomjs-launcher',
+        'karma-requirejs',
         'karma-mocha',
-        'karma-phantomjs-launcher'
+        'karma-chai'
       ],
       singleRun: !grunt.option('watch')
     },

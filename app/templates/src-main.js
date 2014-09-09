@@ -2,7 +2,7 @@
   'use strict';
 
   // Global.
-  window.templateReact = factory();
+  window.<%= cwdCamelCased => = factory();
 
   // AMD.
   if (typeof define === 'function') {

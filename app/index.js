@@ -10,6 +10,7 @@ module.exports = yeoman.generators.Base.extend({
     this.cwdCamelCased = this.cwd.toLowerCase().replace(/-(.)/g, function(match, dir) {
       return dir.toUpperCase();
     });
+    this.cwdSlashCased = this.cwd.toLowerCase().replace(/-/g, '/');
   },
 
   dirs: function () {
@@ -28,9 +29,15 @@ module.exports = yeoman.generators.Base.extend({
     this.template('.jshintrc', '.jshintrc');
     this.template('bower.json', 'bower.json');
     this.template('build-bin-npm-postinstall.sh', 'build/bin/npm-postinstall.sh');
+    this.template('build-configs-clean.js', 'build/configs/clean.js');
     this.template('build-configs-index.js', 'build/configs/index.js');
+    this.template('build-configs-jscs.js', 'build/configs/jscs.js');
+    this.template('build-configs-jshint.js', 'build/configs/jshint.js');
     this.template('build-configs-karma.js', 'build/configs/karma.js');
     this.template('build-configs-requirejs.js', 'build/configs/requirejs.js');
+    this.template('build-tasks-default.js', 'build/tasks/default.js');
+    this.template('build-tasks-dist.js', 'build/tasks/dist.js');
+    this.template('build-tasks-lint.js', 'build/tasks/lint.js');
     this.template('Gruntfile.js', 'Gruntfile.js');
     this.template('package.json', 'package.json');
     this.template('readme.md', 'readme.md');
@@ -39,11 +46,6 @@ module.exports = yeoman.generators.Base.extend({
     this.template('test-lib-polyfills.js', 'test/lib/polyfills.js');
     this.template('test-unit-main.js', 'test/unit/main.js');
     this.template('test-unit.js', 'test/unit.js');
-  },
-
-  writes: function () {
-
-
   },
 
   finalise: function () {

@@ -29,12 +29,11 @@ module.exports = yeoman.generators.Base.extend({
     this.template('.jshintrc', '.jshintrc');
     this.template('bower.json', 'bower.json');
     this.template('build-bin-npm-postinstall.sh', 'build/bin/npm-postinstall.sh');
-    this.template('build-configs-clean.js', 'build/configs/clean.js');
     this.template('build-configs-index.js', 'build/configs/index.js');
     this.template('build-configs-jscs.js', 'build/configs/jscs.js');
     this.template('build-configs-jshint.js', 'build/configs/jshint.js');
     this.template('build-configs-karma.js', 'build/configs/karma.js');
-    this.template('build-configs-requirejs.js', 'build/configs/requirejs.js');
+    this.template('build-configs-shell.js', 'build/configs/shell.js');
     this.template('build-tasks-default.js', 'build/tasks/default.js');
     this.template('build-tasks-dist.js', 'build/tasks/dist.js');
     this.template('build-tasks-lint.js', 'build/tasks/lint.js');

@@ -4,7 +4,7 @@ module.exports = function (grunt) {
       command: [
         'rm -rf dist',
         'mkdir dist',
-        './node_modules/traceur/traceur-build --out dist/main.js --script src/main.js'
+        './node_modules/traceur/traceur-build --out dist/main.js --module src/main.js --modules=inline'
       ].join(' && ')
     }
   };

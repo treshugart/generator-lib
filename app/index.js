@@ -35,6 +35,7 @@ module.exports = yeoman.generators.Base.extend({
     this.template('build-configs-jscs.js', 'build/configs/jscs.js');
     this.template('build-configs-jshint.js', 'build/configs/jshint.js');
     this.template('build-configs-karma.js', 'build/configs/karma.js');
+    this.template('build-configs-less.js', 'build/configs/less.js');
     this.template('build-configs-shell.js', 'build/configs/shell.js');
     this.template('build-configs-uglify.js', 'build/configs/uglify.js');
     this.template('build-configs-watch.js', 'build/configs/watch.js');
@@ -47,6 +48,7 @@ module.exports = yeoman.generators.Base.extend({
     this.template('Gruntfile.js', 'Gruntfile.js');
     this.template('package.json', 'package.json');
     this.template('readme.md', 'readme.md');
+    this.template('src-main.less', 'src/main.less');
     this.template('src-main.js', 'src/main.js');
     this.template('test-lib-helpers.js', 'test/lib/helpers.js');
     this.template('test-lib-polyfills.js', 'test/lib/polyfills.js');

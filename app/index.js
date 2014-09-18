@@ -7,6 +7,7 @@ var yeoman = require('yeoman-generator');
 module.exports = yeoman.generators.Base.extend({
   vars: function () {
     this.cwd = path.basename(process.cwd());
+    this.pwd = path.basename(path.resolve(process.cwd() + '/..'));
     this.cwdCamelCased = this.cwd.toLowerCase().replace(/-(.)/g, function(match, dir) {
       return dir.toUpperCase();
     });

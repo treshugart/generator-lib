@@ -3,25 +3,16 @@ module.exports = function (grunt) {
 
   return {
     dist: {
-      command: [
-        'rm -rf dist',
-        traceurCommand + '--out dist/<%= cwd %>.js --module src/main.js'
-      ].join(' && ')
+      command: traceurCommand + '--out dist/<%= cwd %>.js --module src/main.js'
     },
     installBower: {
       command: './node_modules/.bin/bower install'
     },
     installTraceur: {
-      command: [
-        'cd ./node_modules/traceur',
-        'npm install'
-      ].join(' && ')
+      command: 'cd ./node_modules/traceur && npm install'
     },
     test: {
-      command: [
-        'rm -rf .tmp',
-        traceurCommand + '--out .tmp/run-unit-tests.js --module test/unit.js'
-      ].join(' && ')
+      command: traceurCommand + '--out .tmp/run-unit-tests.js --module test/unit.js'
     }
   };
 };

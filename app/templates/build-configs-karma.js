@@ -64,7 +64,7 @@ module.exports = function (grunt) {
       ],
 
       saucelabs: {
-        testName: 'SkateJS Unit Tests'
+        testName: 'Unit Tests'
       },
 
       singleRun: !grunt.option('keep-alive'),

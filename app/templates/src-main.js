@@ -1,22 +1,26 @@
-(function (factory) {
-  'use strict';
+'use strict';
 
-  // Global.
-  window.<%= cwdCamelCased => = factory();
+var <%= cwdCamelCased %> = {};
 
-  // AMD.
-  if (typeof define === 'function') {
-    define(function () {
-      return factory();
-    });
-  }
+// Exporting
+// ---------
 
-  // CommonJS.
-  if (typeof module === 'object') {
-    module.exports = factory();
-  }
-}(function () {
-  'use strict';
+// Always export the global. We don't know how consumers are using it and what
+// their environments are like. Doing this affords them the flexibility of
+// using it in an environment where module and non-module code may co-exist.
+window.<%= cwdCamelCased %> = <%= cwdCamelCased %>;
 
-  return {};
-}));
+// AMD
+if (typeof define === 'function' && define.amd) {
+  define(function () {
+    return <%= cwdCamelCased %>;
+  });
+}
+
+// CommonJS
+if (typeof module === 'object') {
+  module.exports = <%= cwdCamelCased %>;
+}
+
+// ES6
+export default <%= cwdCamelCased %>;

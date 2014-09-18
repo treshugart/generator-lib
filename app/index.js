@@ -48,8 +48,8 @@ module.exports = yeoman.generators.Base.extend({
     this.template('Gruntfile.js', 'Gruntfile.js');
     this.template('package.json', 'package.json');
     this.template('readme.md', 'readme.md');
-    this.template('src-main.less', 'src/main.less');
     this.template('src-main.js', 'src/main.js');
+    this.template('src-main.less', 'src/main.less');
     this.template('test-lib-helpers.js', 'test/lib/helpers.js');
     this.template('test-lib-polyfills.js', 'test/lib/polyfills.js');
     this.template('test-unit-main.js', 'test/unit/main.js');

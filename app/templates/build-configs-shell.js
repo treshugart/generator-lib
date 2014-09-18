@@ -5,7 +5,7 @@ module.exports = function (grunt) {
     dist: {
       command: [
         'rm -rf dist',
-        traceurCommand + '--out dist/<%= cwd %>.js --module src/<%= cwd %>.js'
+        traceurCommand + '--out dist/<%= cwd %>.js --module src/main.js'
       ].join(' && ')
     },
     installBower: {

@@ -3,7 +3,7 @@ module.exports = function () {
     dist: {
       files: {
         'dist/<%= cwd %>.css': [
-          'src/<%= cwd %>.less'
+          'src/main.less'
         ]
       }
     }

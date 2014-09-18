@@ -1,46 +1,75 @@
 module.exports = function (grunt) {
   var browsers = grunt.option('browsers');
+  var sauce = grunt.option('sauce');
+  var customLaunchers = {
+      sl_chrome: {
+        base: 'SauceLabs',
+        browserName: 'chrome',
+        platform: 'Windows 8.1',
+        version: '37'
+      },
+      sl_firefox: {
+        base: 'SauceLabs',
+        browserName: 'firefox',
+        platform: 'Windows 8.1',
+        version: '31'
+      },
+      sl_ie_11: {
+        base: 'SauceLabs',
+        browserName: 'internet explorer',
+        platform: 'Windows 8.1',
+        version: '11'
+      }
+    };
 
-  if (browsers) {
+  if (sauce) {
+    browsers = Object.keys(customLaunchers);
+  } else if (browsers) {
     browsers = browsers.split(',');
   } else {
-    browsers = ['PhantomJS'];
+    browsers = ['Chrome'];
   }
 
   return {
     options: {
-      hostname: grunt.option('host') || 'localhost',
-      port: grunt.option('port') || '9876',
       browsers: browsers,
-      files: [
-        // Load in script tags.
-        { pattern: 'test/lib/polyfills.js', included: true },
-        { pattern: 'test/*.js', included: true },
 
-        // Register for AMD loader.
-        { pattern: 'bower_components/**/*.js', included: false },
-        { pattern: 'src/*.js', included: false },
-        { pattern: 'test/**/*.js', included: false },
-        { pattern: 'test/lib/helpers.js', included: false }
+      customLaunchers: customLaunchers,
+
+      files: [
+        { pattern: '.tmp/run-unit-tests.js', included: true }
       ],
+
       frameworks: [
-        'requirejs',
         'mocha',
         'chai'
       ],
+
+      hostname: grunt.option('host') || 'localhost',
+
       plugins: [
         'karma-chai',
         'karma-chrome-launcher',
         'karma-firefox-launcher',
         'karma-mocha',
         'karma-phantomjs-launcher',
-        'karma-requirejs'
+        'karma-sauce-launcher'
       ],
-      singleRun: !grunt.option('watch')
+
+      port: grunt.option('port') || '9876',
+
+      reporters: [
+        'progress',
+        'saucelabs'
+      ],
+
+      saucelabs: {
+        testName: 'SkateJS Unit Tests'
+      },
+
+      singleRun: !grunt.option('keep-alive'),
     },
-    cli: {},
-    http: {
-      singleRun: false
-    }
+
+    unit: {}
   };
 };

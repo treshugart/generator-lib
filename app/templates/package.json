@@ -24,7 +24,7 @@
     "traceur": "0.0.60"
   },
   "scripts": {
-    "postinstall": "sh ./build/bin/npm-postinstall.sh",
-    "test": "grunt karma:cli"
+    "postinstall": "./node_modules/.bin/grunt install",
+    "test": "./node_modules/.bin/grunt test --sauce"
   }
 }

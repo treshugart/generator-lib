@@ -31,6 +31,7 @@ module.exports = yeoman.generators.Base.extend({
     this.template('bower.json', 'bower.json');
     this.template('build-bin-npm-postinstall.sh', 'build/bin/npm-postinstall.sh');
     this.template('build-configs-availabletasks.js', 'build/configs/availabletasks.js');
+    this.template('build-configs-clean.js', 'build/configs/clean.js');
     this.template('build-configs-cssmin.js', 'build/configs/cssmin.js');
     this.template('build-configs-index.js', 'build/configs/index.js');
     this.template('build-configs-jscs.js', 'build/configs/jscs.js');

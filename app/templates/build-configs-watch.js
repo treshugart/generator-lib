@@ -1,15 +1,14 @@
 module.exports = function (grunt) {
-  var js = 'src/{*,**/*}.js';
-  var less = 'src/{*,**/*}.less';
-  var test = 'src/{*,**/*}.js';
+  var src = 'src/{*,**/*}.{js,less}';
+  var test = 'test/{*,**/*}.{js,less}';
 
   return {
     dist: {
-      files: [js, less],
+      files: [src],
       tasks: ['less:dist', 'shell:dist', 'uglify:dist']
     },
     test: {
-      files: [js, less, test],
+      files: [src, test],
       tasks: ['shell:test']
     }
   };

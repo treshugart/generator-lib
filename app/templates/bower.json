@@ -1,8 +1,0 @@
-{
-  "name": "<%= cwd %>",
-  "description": "<%= cwd %>",
-  "repository": "https://github.com/<%= pwd %>/<%= cwd %>",
-  "version": "0.0.0",
-  "dependencies": {},
-  "devDependencies": {}
-}
